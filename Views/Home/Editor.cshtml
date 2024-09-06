@@ -1,0 +1,26 @@
+@model PostsList
+
+<h2>Yazılar</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col" width="40%">Başlık</th>
+        <th scope="col" width="20%">İçerıik</th>
+        <th scope="col" width="20%">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var post in Model.Posts)
+    {
+        <tr>
+            <td>@post.Title</td>
+            <td>@post.Body</td>
+            <td>
+                <a href="/home/DeletePost/@post.Id" onclick="return confirm('Emin misin?')" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>
